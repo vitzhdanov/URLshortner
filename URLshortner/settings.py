@@ -82,7 +82,7 @@ DATABASES = {
 
         'ENGINE': 'django.db.backends.postgresql',
 
-        'NAME': 'd5v3d2atr7p0m8',
+        'NAME': 'd4i63va13c2h5m',
 
         'HOST': 'ec2-44-194-6-121.compute-1.amazonaws.com',
 
