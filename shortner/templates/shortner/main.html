@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+<html lang="en" xmlns:C="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+        .bg-cover {
+        margin-top: 0px;
+        background-image: url('../shortners/templates/shortners/pic.jpg');
+        }
+                .bg-cover {
+            background-image: url(https://i.ibb.co/d7CKsGq/3.png) ;
+            background-size: 1000px 230px;
+            height: 40vh;
+            background-repeat: no-repeat;
+            background-position: center;
+            max-width: 100%;
+
+        }
+
+                @media only screen and (max-width: 600px) {
+        .bg-cover {
+            background-image: url(https://raw.githubusercontent.com/gist/brudnak/dbe7bcbae5a283d2f393b0bb88d0d834/raw/8efb958d79fd81630ee777d62d85bb085391ef4a/portal.gif) ;
+            background-size: 300px 300px;
+            background-repeat: no-repeat;
+            background-position: center;
+            }
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div class="bg-cover" align="center"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div align="center" class="col-sm-8">
+        <form method="post">
+          {% csrf_token %}
+          {% for i in form %}
+            <input type="{{ i.field.widget.input_type }}" class="form-control" name="{{ i.name }}" placeholder="Your HUUUUUGE link" style="text-align: center;">
+          {% endfor %}
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" type="button" onclick="copy_sym()" onmouseout="outFunc()"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <input type="text" class="form-control" value="{{url.short_url_sym}}" placeholder="Symbol link" id="symbol">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" type="button" onclick="copy_em()" onmouseout="outFunc()"><i class="bi bi-clipboard"></i></button>
+                </div>
+                <input type="text" class="form-control" value="{{url.short_url_em}}" placeholder="Emoji link" id="emoji">
+              </div>
+            </div>
+          </div>
+          <br>
+          <button class="btn btn-secondary" value="letters" name="letters">Letters</button>
+
+
+
+        </form>
+      </div>
+      <div class="col-sm-2"></div>
+    </div>
+  </div>
+  <script>
+    function copy_sym() {
+      var copyText = document.getElementById("symbol");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+    function copy_em() {
+      var copyText = document.getElementById("emoji");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+    }
+  </script>
+</body>
+</html>
