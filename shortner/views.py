@@ -17,7 +17,7 @@ def main(request):
                     context = {'url': url, 'form': form}
                     return render(request, 'shortner/main.html', context)
             except ObjectDoesNotExist:
-                urls.create(long_url=request.POST.get('long_url'), short_url_sym=f'http://127.0.0.1:8000/{random_url()}', short_url_em=f'http://127.0.0.1:8000/{emoji()}')
+                urls.create(long_url=request.POST.get('long_url'), short_url_sym=f'http://www.iclc.info/{random_url()}', short_url_em=f'http://www.iclc.info/{emoji()}')
                 url = urls.get(long_url=request.POST.get('long_url'))
                 context = {'url': url, 'form': form}
                 return render(request, 'shortner/main.html', context)
@@ -27,8 +27,8 @@ def main(request):
 
 def url(request, url):
     try:
-        url = Url.objects.get(short_url_sym=f'http://127.0.0.1:8000/{url}').long_url
+        url = Url.objects.get(short_url_sym=f'http://www.iclc.info/{url}').long_url
         return redirect(url)
     except ObjectDoesNotExist:
-        url = Url.objects.get(short_url_em=f'http://127.0.0.1:8000/{url}').long_url
+        url = Url.objects.get(short_url_em=f'http://www.iclc.info/{url}').long_url
         return redirect(url)
