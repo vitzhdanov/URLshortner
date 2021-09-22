@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#=8ge+s&vf(9r!!24w@fr+oy$k$$xssn$$2#w(6=cx#(g+2w(6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -79,19 +79,8 @@ WSGI_APPLICATION = 'URLshortner.wsgi.application'
 
 DATABASES = {
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql',
-
-        'NAME': 'd4i63va13c2h5m',
-
-        'HOST': 'ec2-44-194-6-121.compute-1.amazonaws.com',
-
-        'PORT': 5432,
-
-        'USER': 'amakcmozipfxtk',
-
-        'PASSWORD': '8b7919d7fbde9d56cee768733d1c3154ee2d8bac6f580392ee5de5d98596df7b',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
