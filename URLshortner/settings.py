@@ -79,8 +79,19 @@ WSGI_APPLICATION = 'URLshortner.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql',
+
+        'NAME': 'd5v3d2atr7p0m8',
+
+        'HOST': 'ec2-44-194-6-121.compute-1.amazonaws.com',
+
+        'PORT': 5432,
+
+        'USER': 'amakcmozipfxtk',
+
+        'PASSWORD': '8b7919d7fbde9d56cee768733d1c3154ee2d8bac6f580392ee5de5d98596df7b',
+
     }
 }
 
