@@ -21,8 +21,6 @@ def main(request):
                 url = urls.get(long_url=request.POST.get('long_url'))
                 context = {'url': url, 'form': form}
                 return render(request, 'shortner/main.html', context)
-    if len(urls) > 100000:
-        urls.delete()
     context = {'url': urls, 'form': form}
     return render(request, 'shortner/main.html', context)
 
